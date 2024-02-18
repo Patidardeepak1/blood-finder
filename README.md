@@ -1,33 +1,23 @@
-#Blood Finder
+# Blood Finder
 
-#This is a brief description of your project.
+# This is a brief description of your project.
 
 
-#Backend Setup
--To set up the backend of the project, follow these steps:
+# Backend Setup
+- To set up the backend of the project, follow these steps:
 
--Navigate to the root directory of the project.
+- Navigate to the root directory of the project.
 
--Run the following command to install dependencies:
+- Run the following command to install dependencies:   npm i
 
-npm i
- 
--After installing dependencies, run the following command to start the development server:
+- After installing dependencies, run the following command to start the development server: npm run dev
 
-npm run dev
+# Frontend Setup
 
-#Frontend Setup
+- To set up the frontend of the project, follow these steps:
 
--To set up the frontend of the project, follow these steps:
+- Navigate to the frontend directory of the project:  cd frontend
 
--Navigate to the frontend directory of the project:
+- Run the following command to install dependencies:  npm i
 
-cd frontend
-
--Run the following command to install dependencies:
-
-npm i
-
--After installing dependencies, run the following command to start the development server:
-
-npm run dev
+- After installing dependencies, run the following command to start the development server: npm run dev
