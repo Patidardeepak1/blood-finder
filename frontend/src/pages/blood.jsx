@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {server} from './constant.js'
+
 function BloodTable() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -10,7 +10,7 @@ function BloodTable() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const response = await fetch(`${server}/api/blood/blooddetials`);
+        const response = await fetch(`/api/blood/blooddetials`);
         const data = await response.json();
         setUsers(data);
         setFilteredUsers(data); // Initialize filtered users with all users

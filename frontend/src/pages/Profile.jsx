@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { updateUserFilure, updateUserSucess, updateUserStart, deleteUserFilure, deleteUserStart, deleteUserSucess, signoutUserFilure, signoutUserSucess, signoutUserStart } from "../redux/user/userSlice";
-import {server} from './constant.js'
+
 function Profile() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({});
@@ -29,7 +29,7 @@ function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`${server}/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ function Profile() {
   const handleDelete = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`${server}/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -67,7 +67,7 @@ function Profile() {
   const handelSiginout = async () => {
     try {
       dispatch(signoutUserStart());
-      const res = await fetch(`${server}/api/auth/signout`);
+      const res = await fetch(`/api/auth/signout`);
       const data = await res.json();
       if (data.success === false) {
         dispatch(signoutUserFilure(data.message));

@@ -5,7 +5,7 @@ import userRouter from "./routes/user.routes.js"
 import authRouter from "./routes/auth.routes.js"
 import cookieParser from "cookie-parser";
 import bloodRouter from './routes/blood.routes.js'
-import cors from 'cors'; 
+import path from 'path';
 dotenv.config();
 
 mongoose.connect(process.env.MONGO)
@@ -14,8 +14,7 @@ mongoose.connect(process.env.MONGO)
    }).catch((err)=>{
       console.log(err);
    });
-
- 
+const __dirname = path.resolve();
 
 const app=express();
 
@@ -23,7 +22,7 @@ const app=express();
 app.use(express.json())
 
 app.use(cookieParser())
-app.use(cors());
+
 
 app.listen(3000,()=>{
    console.log("server is running on port 3000!!"); 
@@ -33,7 +32,11 @@ app.listen(3000,()=>{
 app.use('/api/user',userRouter)
 app.use('/api/auth',authRouter)
 app.use('/api/blood',bloodRouter)
+app.use(express.static(path.join(__dirname, '/client/dist')));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+})
 app.use((err,req,res,next)=>{
    const statuscode=err.statuscode||500;
    const message=err.message||"internal server error";
