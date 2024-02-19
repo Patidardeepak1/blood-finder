@@ -6,7 +6,7 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice.js";
-
+import {server} from './constant.js'
 function Signin() {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
@@ -24,7 +24,7 @@ function Signin() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch(`${server}/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

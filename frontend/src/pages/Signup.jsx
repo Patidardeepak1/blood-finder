@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import {server} from './constant.js'
 
 function Signup() {
   const [formData, setFormData] = useState({});
@@ -18,7 +18,7 @@ function Signup() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/auth/signup", {
+      const res = await fetch(`${server}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

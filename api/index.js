@@ -5,6 +5,7 @@ import userRouter from "./routes/user.routes.js"
 import authRouter from "./routes/auth.routes.js"
 import cookieParser from "cookie-parser";
 import bloodRouter from './routes/blood.routes.js'
+import cors from 'cors'; 
 dotenv.config();
 
 mongoose.connect(process.env.MONGO)
@@ -14,10 +15,13 @@ mongoose.connect(process.env.MONGO)
       console.log(err);
    });
 
-
+ 
 
 const app=express();
-
+app.use(cors({
+   origin: '*', // Allow requests from this origin
+   methods: 'GET,POST', // Allow only GET and POST requests
+ }));
 
 app.use(express.json())
 
