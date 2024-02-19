@@ -50,7 +50,7 @@ function Profile() {
   const handleDelete = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${server}/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -67,7 +67,7 @@ function Profile() {
   const handelSiginout = async () => {
     try {
       dispatch(signoutUserStart());
-      const res = await fetch('/api/auth/signout');
+      const res = await fetch(`${server}/api/auth/signout`);
       const data = await res.json();
       if (data.success === false) {
         dispatch(signoutUserFilure(data.message));
