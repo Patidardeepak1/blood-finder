@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:"https://blood-finder1.onrender.com",
+        target:"https://blood-finder-one.vercel.app",
         secure:false,
       },
     },
