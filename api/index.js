@@ -32,10 +32,10 @@ app.listen(3000,()=>{
 app.use('/api/user',userRouter)
 app.use('/api/auth',authRouter)
 app.use('/api/blood',bloodRouter)
-app.use(express.static(path.join(__dirname, '/client/dist')));
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 })
 app.use((err,req,res,next)=>{
    const statuscode=err.statuscode||500;
