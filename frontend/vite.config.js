@@ -7,7 +7,7 @@ export default defineConfig({
     
     proxy:{
       '/api':{
-        target:"https://blood-finder1.onrender.com",
+        target:"https://blood-finder1.onrender.com/",
         secure:false,
       },
     },
